@@ -1,0 +1,106 @@
+.weekly-risk-dashboard {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.main-card,
+.team-card,
+.retention-card,
+.weekly-department-card {
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 8px;
+}
+
+.main-card {
+  background: linear-gradient(to right, #f5f7fa, #eef2f7);
+}
+
+.stats-row {
+  padding: 10px 0;
+}
+
+.stat-subtitle {
+  font-size: 12px;
+  color: #8c8c8c;
+  text-align: center;
+  margin-top: -5px;
+}
+
+.department-select {
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.retention-risk-teams {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.retention-risk-teams .ant-tag {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.weekly-changes {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.change-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.change-label {
+  font-weight: 500;
+  color: #333;
+}
+
+.change-value {
+  font-weight: bold;
+}
+
+.change-value.negative {
+  color: #f5222d;
+}
+
+.change-value.positive {
+  color: #52c41a;
+}
+
+.risk-factors-list {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: none;
+}
+
+.risk-factor-item {
+  margin-bottom: 8px;
+  font-size: 13px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.risk-factor-item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: inherit;
+}
+
+@media (max-width: 1200px) {
+  .stats-row {
+    flex-direction: column;
+  }
+  
+  .stats-row .ant-col {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}

@@ -1,0 +1,132 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, 
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f9f9f9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Toggle button styles */
+.chatbot-toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  background-color: #4a6cf7;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chatbot-toggle-btn:hover {
+  background-color: #3a5cd8;
+}
+
+.chatbot-toggle-btn::before {
+  content: "🤖";
+  display: inline-block;
+}
+
+/* Floating chatbot container */
+.floating-chatbot {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 350px;
+  height: 500px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  z-index: 998;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.floating-chatbot.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.floating-chatbot.hidden {
+  transform: translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Header controls for chatbot */
+.chatbot-header-controls {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+  background-color: #4a6cf7;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.chatbot-close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.chatbot-close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* Make the chatbot fill the available space */
+.floating-chatbot .chatbot-container {
+  height: 100%;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Remove the top border radius from chatbot header since we have our own */
+.floating-chatbot .chatbot-header {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .floating-chatbot {
+    width: 85%;
+    height: 60vh;
+    bottom: 70px;
+    right: 10px;
+  }
+  
+  .chatbot-toggle-btn {
+    bottom: 15px;
+    right: 15px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
