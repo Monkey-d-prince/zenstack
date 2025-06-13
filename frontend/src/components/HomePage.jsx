@@ -18,8 +18,8 @@ const HomePage = () => {
             try {
                 setLoading(true);
                 const [tablesResponse, schemasResponse] = await Promise.all([
-                    axios.get('http://0.0.0.0:3000/tables'),
-                    axios.get('http://0.0.0.0:3000/schemas')
+                    axios.get('http://127.0.0.1:3000/tables'),
+                    axios.get('http://127.0.0.1:3000/schemas')
                 ]);
                 
                 setTables(tablesResponse.data.tables);
