@@ -23,15 +23,15 @@ const WeeklyRiskDashboard = () => {
         setLoading(true);
     
         // Fetch employee weekly trends data
-        const weeklyTrendsResponse = await fetch('http://0.0.0.0:3000/overview/employee-weekly-trends');
+        const weeklyTrendsResponse = await fetch('http://127.0.0.1:3000/overview/employee-weekly-trends');
         const weeklyTrendsData = await weeklyTrendsResponse.json();
         
         // Fetch risk assessment data
-        const riskResponse = await fetch('http://0.0.0.0:3000/overview/risk-assessment');
+        const riskResponse = await fetch('http://127.0.0.1:3000/overview/risk-assessment');
         const riskAssessmentData = await riskResponse.json();
         
         // Fetch attendance data from the new endpoint
-        const attendanceResponse = await fetch('http://0.0.0.0:3000/get-attendance');
+        const attendanceResponse = await fetch('http://127.0.0.1:3000/get-attendance');
         const attendanceResult = await attendanceResponse.json();
         
         setAttendanceData(attendanceResult.attendance || []);
@@ -524,7 +524,7 @@ const WeeklyRiskDashboard = () => {
         const fetchRecommendations = async () => {
           try {
             // Use our new backend API instead of direct Gemini calls
-            const response = await fetch('http://0.0.0.0:3000/api/employee/insight-recommendations', {
+            const response = await fetch('http://127.0.0.1:3000/api/employee/insight-recommendations', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
