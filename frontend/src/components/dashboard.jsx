@@ -141,7 +141,7 @@ const RiskAssessment = () => {
   useEffect(() => {
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://0.0.0.0:3000/overview/risk-assessment');
+            const response = await axios.get('http://127.0.0.1:3000/overview/risk-assessment');
             const employees = response.data.employees;
 
             // Calculate individual risks
