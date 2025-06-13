@@ -15,10 +15,6 @@ const Chatbot = () => {
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
-  // Gemini AI Configuration - Move to environment variables
-  // const GEMINI_API_KEY = 'AIzaSyAcbqan-PqKDHO0WNlrcfa2O3JN8lbEqlk';
-  // const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
-
   // Auto-scroll to bottom of messages
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -74,7 +70,7 @@ const Chatbot = () => {
   // Make Gemini API call through backend
   const callGeminiAPI = async (prompt, retries = 2) => {
     try {
-      const response = await fetch('http://0.0.0.0:3000/api/gemini/generate', {
+      const response = await fetch('http://127.0.0.1:3000/api/gemini/generate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -238,7 +234,7 @@ Format as a brief executive summary.`;
       if (isDataQuery(currentInput)) {
         // Handle data analytics queries
         try {
-          const response = await axios.post('http://0.0.0.0:3000/api/query', { 
+          const response = await axios.post('http://127.0.0.1:3000/api/query', { 
             question: currentInput 
           }, {
             timeout: 30000,
