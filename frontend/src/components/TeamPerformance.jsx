@@ -27,7 +27,7 @@ const TeamPerformance = () => {
 
     const fetchTeamData = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/overview/teams-performance');
+            const response = await axios.get('http://127.0.0.1:3000/overview/teams-performance');
             setTeamData(response.data.teams || []);
         } catch (error) {
             console.error('Error fetching team data:', error);
@@ -36,7 +36,7 @@ const TeamPerformance = () => {
 
     const fetchTrendsData = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/overview/weekly-trends');
+            const response = await axios.get('http://127.0.0.1:3000/overview/weekly-trends');
             setTrendsData(response.data.teams || []);
             if (response.data.teams?.length > 0) {
                 setSelectedTeam(response.data.teams[0].team);
@@ -48,7 +48,7 @@ const TeamPerformance = () => {
 
     const fetchEmployeeTrendsData = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/overview/employee-weekly-trends');
+            const response = await axios.get('http://127.0.0.1:3000/overview/employee-weekly-trends');
             console.log('Raw Employee Data Response:', response.data);
             
             if (response.data.employees && Array.isArray(response.data.employees)) {
