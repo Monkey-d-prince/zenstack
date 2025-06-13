@@ -29,8 +29,8 @@ const TableData = () => {
                 setLoading(true);
                 
                 const [dataResponse, schemaResponse] = await Promise.all([
-                    axios.get(`http://0.0.0.0:3000/table/${tableName}`),
-                    axios.get(`http://0.0.0.0:3000/schema/${tableName}`)
+                    axios.get(`http://127.0.0.1:3000/table/${tableName}`),
+                    axios.get(`http://127.0.0.1:3000/schema/${tableName}`)
                 ]);
                 
                 setTableData(dataResponse.data.data);
