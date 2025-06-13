@@ -51,8 +51,8 @@ const OverView = () => {
   const fetchAppUsage = async (teamName) => {
     try {
       const endpoint = teamName === "all" 
-        ? 'http://0.0.0.0:3000/overview/app-usage'
-        : `http://0.0.0.0:3000/overview/app-usage/${teamName}`;
+        ? 'http://127.0.0.1:3000/overview/app-usage'
+        : `http://127.0.0.1:3000/overview/app-usage/${teamName}`;
       
       const appUsageRes = await axios.get(endpoint);
       
@@ -81,7 +81,7 @@ const getAIRecommendation = async (team) => {
     
     // Fix the URL format to match the backend endpoint definition
     // Change from /api/team-recommendations to /api/team/recommendations
-    const response = await axios.post('http://0.0.0.0:3000/api/team/recommendations', {
+    const response = await axios.post('http://127.0.0.1:3000/api/team/recommendations', {
       team_data: team
     });
     
@@ -121,9 +121,9 @@ const getAIRecommendation = async (team) => {
         
         try {
           const [metricsRes, changesRes, teamsRes] = await Promise.all([
-            axios.get('http://0.0.0.0:3000/overview/metrics'),
-            axios.get('http://0.0.0.0:3000/overview/productivity-changes'),
-            axios.get('http://0.0.0.0:3000/overview/teams-performance')
+            axios.get('http://127.0.0.1:3000/overview/metrics'),
+            axios.get('http://127.0.0.1:3000/overview/productivity-changes'),
+            axios.get('http://127.0.0.1:3000/overview/teams-performance')
           ]);
           
           setMetrics(metricsRes.data);
@@ -172,7 +172,7 @@ const getAIRecommendation = async (team) => {
     try {
       setEngagementLoading(prev => ({ ...prev, [teamName]: true }));
       
-      const endpoint = `http://0.0.0.0:3000/overview/app-usage/${teamName}`;
+      const endpoint = `http://127.0.0.1:3000/overview/app-usage/${teamName}`;
       const response = await axios.get(endpoint);
       
       const allApps = [
